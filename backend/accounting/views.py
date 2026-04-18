@@ -33,10 +33,17 @@ class RegisterUserView(APIView):
         else:
             user = User.objects.create_user(username=email, email=email, password=password, first_name=name)
 
-        # Get or create Main Branch
-        branch, _ = Branch.objects.get_or_create(name='Main Branch', defaults={'address': 'Auto Created', 'phone': '09'})
-        # Create profile mapping to Main Branch
-        UserProfile.objects.get_or_create(user=user, defaults={'branch': branch, 'role': 'STAFF'})
+        # Ensure user has their own branch (Shop) for data isolation
+        profile, created_profile = UserProfile.objects.get_or_create(user=user)
+        
+        # If the user is new, or doesn't have a branch, or is still on the shared 'Main Branch'
+        # we give them their own dedicated branch.
+        if created_profile or not profile.branch or profile.branch.name == 'Main Branch':
+            branch_name = f"{user.first_name if user.first_name else 'User'}'s Shop"
+            new_branch = Branch.objects.create(name=branch_name, address='Auto Created', phone='09')
+            profile.branch = new_branch
+            profile.role = 'ADMIN'
+            profile.save()
 
         # Give them a token
         token, _ = Token.objects.get_or_create(user=user)

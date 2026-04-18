@@ -130,7 +130,7 @@ const cashInCommission = computed(() => {
   const amount = parseFloat(form.value.cashIn);
   if (!amount || isNaN(amount)) return 0;
   const range = waveComList.value.find(item => amount >= item.min_amount && amount <= item.max_amount);
-  return range ? range.cash_in_com : 0;
+  return range ? (amount * parseFloat(range.cash_in_com)) : 0;
 });
 
 watch(transferCommission, (val) => { form.value.transferCom = val; });

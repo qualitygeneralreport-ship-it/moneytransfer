@@ -8,7 +8,7 @@ const pinia = createPinia()
 
 app.use(pinia)
 app.use(GoogleSignInPlugin, {
-  clientId: '192409255429-3058d3n0nm0d8ltfkoucfigg44etek0m.apps.googleusercontent.com', // သင်ရလာတဲ့ ID ကိုဒီမှာထည့်ပါ
+  clientId: '258872748942-e9b0bei00dj9psg8bfln1deubusdaaig.apps.googleusercontent.com', // သင်ရလာတဲ့ ID ကိုဒီမှာထည့်ပါ
 })
 
 app.mount('#app')
