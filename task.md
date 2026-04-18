@@ -1,0 +1,24 @@
+# Task List
+
+- [x] 1. Update Core Models in Django (`accounting/models.py`)
+  - [x] Create generic Django backend project structure.
+  - [x] Add `Branch` model.
+  - [x] Add `UserProfile` model mapping `User` to `Branch` and defining `Role`.
+  - [x] Add `Customer` model with `Branch` ForeignKey (isolated per branch).
+- [x] 2. Update Configuration Models
+  - [x] Add `CommissionSetting` model for global commission rules (Wave, True, Bank).
+- [x] 3. Update Accounting Models
+  - [x] Add `Branch` ForeignKey to `ChartOfAccount` so each branch can add their own accounts.
+  - [x] Add `Branch` ForeignKey to `JournalEntry` for correct filtering.
+- [x] 4. Add Transaction Specific Models
+  - [x] Add `WaveTransaction` model
+  - [x] Add `TrueMoneyTransaction` model
+  - [x] Add `BankTransaction` model
+- [x] 5. Implement Business Logic (Signals/Save methods)
+  - [x] Double-entry logic for Wave
+  - [x] Double-entry logic for TrueMoney
+  - [x] Double-entry logic for BankTransaction
+- [ ] 6. Update Django REST API Views and Serializers
+  - [ ] Apply branch-level filtering automatically based on request user.
+  - [ ] Expose endpoint for COA creation per branch.
+  - [ ] Expose endpoints for Transactions.

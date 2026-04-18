@@ -1,0 +1,22 @@
+# Task List: Frontend Django Integration
+
+- [ ] 1. Create API Client (`src/api.js`) to handle base URL and Authorization headers.
+- [ ] 2. Update Environment config to `VITE_API_BASE_URL`.
+- [ ] 3. Update Authentication Logic
+  - [ ] Modify `LoginForm.vue` to hit `/api/login/` and save token.
+  - [ ] Update `stores/auth.js` to handle token storage and state.
+- [ ] 4. Refactor Core Components Data Fetching
+  - [ ] `COARegister.vue` (Fetch & Post)
+  - [ ] `Customer.vue` (Fetch & Post)
+  - [ ] `Dashboard.vue`
+- [ ] 5. Refactor Transaction Components
+  - [ ] `WaveMoney.vue`
+  - [ ] `TrueMoney.vue`
+  - [ ] `Bank.vue`
+- [ ] 6. Refactor Reporting Components
+  - [ ] `BalanceSheet.vue`
+  - [ ] `TrialBalance.vue`
+  - [ ] `CashFlow.vue`
+  - [ ] `Profit.vue`
+  - [ ] `Report.vue`
+  - [ ] `JournalList.vue`
